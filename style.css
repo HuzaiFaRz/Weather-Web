@@ -3,6 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: font1;
+  src: url(FontsFree-Net-Rossetti-W00-Regular.ttf);
+}
+@font-face {
+  font-family: font2;
+  src: url(Montserrat-VariableFont_wght.ttf);
+}
 html,
 body {
   width: 100%;
@@ -18,5 +26,221 @@ body {
   -moz-user-modify: none;
 }
 main {
+  width: 100%;
+  height: 100vh;
+}
+.weather-container {
+  width: 100%;
+  height: 100%;
+  background: url(kyle-johnson-8Gl7Ew-q6D8-unsplash.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  object-position: center;
+}
 
+.weather-row {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.weather-column:nth-child(1) {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 50px;
+  font-family: font1;
+  color: #fff9e3;
+}
+
+.logo {
+  height: 100px;
+  position: absolute;
+  top: 10%;
+}
+
+.weather-information {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 10px;
+}
+
+.degree {
+  position: relative;
+  font-size: 150px;
+  font-weight: 100;
+}
+
+.degree::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: -25%;
+  width: 15px;
+  height: 15px;
+  border: 5px solid white;
+  border-radius: 50%;
+}
+
+.name-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
+}
+.name {
+  font-size: 80px;
+  font-size: 100;
+}
+.date {
+  font-size: 20px;
+  font-weight: 300;
+  font-family: font2;
+}
+
+.weather-condition-icon {
+  font-size: 80px;
+  padding-bottom: 5vw;
+}
+
+.weather-column:nth-child(2) {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0 20px;
+  font-family: font2;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  color: #fbf5df;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #fbf5df;
+}
+.search {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 10px 20px;
+  font-family: font2;
+  color: #fff9e3;
+  font-size: 20px;
+  background-color: rgba(251, 252, 248, 0.1);
+  border-radius: 10px;
+}
+.search::-webkit-search-cancel-button {
+  display: none;
+}
+.search::placeholder {
+  color: #fff;
+  font-size: 14px;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.search-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 3%;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.error{
+  color: red;
+  font-weight: 600;
+}
+
+.weather-column:nth-child(2) > div > h4 {
+  font-weight: 400;
+}
+
+.weather-condition-info {
+  font-size: 22px;
+  font-weight: 500;
+  padding-top: 10px;
+}
+
+.weather-more-information {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 10px;
+  border-bottom: 2px solid #fbf5df;
+}
+
+.weather-more-information > span {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.weather-more-information > span:hover {
+  background-color: rgba(251, 252, 248, 0.1);
+}
+
+.weather-more-information > span > h5,
+.temp-max-value {
+  font-size: 18px;
+  font-weight: 400;
+}
+.weather-more-information > span > div > i {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.temp-min-icon {
+  color: royalblue;
+  padding-left: 10px;
+}
+.temp-max-icon {
+  color: red;
+  padding-left: 10px;
+}
+.temp-max-value,
+.temp-min-value {
+  position: relative;
+}
+
+.temp-max-value::before,
+.temp-min-value::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 50%;
+  width: 5px;
+  height: 5px;
+  border: 2px solid white;
+  border-radius: 50%;
 }
