@@ -22,9 +22,8 @@
     },
   ];
   const weatherContainer = document.querySelector(".weather-container");
-  const degree = document.querySelector(".degree");
-  const name = document.querySelector(".name");
-  const date = document.querySelector(".date");
+  const nameDiv = document.querySelector(".name");
+  const dateDiv = document.querySelector(".date");
   const weatherConditionIcon = document.querySelector(
     ".weather-condition-icon"
   );
@@ -34,12 +33,15 @@
   const weatherConditionInfo = document.querySelector(
     ".weather-condition-info"
   );
-  const tempMaxValue = document.querySelector(".temp-max-value");
-  const tempMinValue = document.querySelector(".temp-min-value");
-  const humadityValue = document.querySelector(".humadity-value");
-  const cloudyValue = document.querySelector(".cloudy-value");
-  const windValue = document.querySelector(".wind-value");
-  const apiKey = "bfcec19f6ef1d97a2c4501545dc2dd94";
+
+  const degreeDiv = document.querySelector(".degree");
+  const tempMaxDiv = document.querySelector(".temp-max-div");
+  const tempMinDiv = document.querySelector(".temp-min-div");
+  const humadityDiv = document.querySelector(".humadity-div");
+  const cloudyDiv = document.querySelector(".cloudy-div");
+  const windDiv = document.querySelector(".wind-div");
+
+  const apiKey = "112643c301e40cb81b9c70b2466c88f8";
 
   form.addEventListener("submit", (event) => {
     const weatherMain = async () => {
@@ -54,22 +56,27 @@
       try {
         const weatherURLFetching = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}`
-        )
+        );
+
+        const weatherURLFetchedData = await weatherURLFetching
+          .json()
           .then((res) => {
-            let weatherURLFetchingData = res.json();
-            console.log(weatherURLFetchingData);
-            if (!res.ok) {
-              throw new Error(
-                (error.textContent = "Network response was not ok")
-              );
-            }
+            let { main, wind, weather, clouds, sys } = res;
+
+            console.log(main, wind, weather, clouds, sys);
+            console.log(res);
           })
+
           .catch((error) => {
             console.log(error);
           })
           .finally((execution = "Complete") => {
             console.log(execution);
           });
+
+        if (!weatherURLFetching.ok) {
+          throw new Error((error.textContent = "Network response was not ok"));
+        }
       } catch (error) {
         console.log(error);
       }
@@ -77,3 +84,9 @@
     weatherMain();
   });
 })();
+
+// .then((res) => {
+//   let weatherURLFetchingData = res.json();
+//   console.log(weatherURLFetchingData);
+
+// })
