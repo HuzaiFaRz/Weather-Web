@@ -61,12 +61,18 @@
         const weatherURLFetchedData = await weatherURLFetching
           .json()
           .then((res) => {
-            let { main, wind, weather, clouds, sys } = res;
+            let { main, wind, weather, clouds, sys, dt, name } = res;
 
-            console.log(main, wind, weather, clouds, sys);
-            console.log(res);
+            const searchCountryFullName = new Intl.DisplayNames([sys.country], {
+              type: "region",
+            }).of(sys.country);
+            nameDiv.textContent = `${name}, ${searchCountryFullName}`;
+            console.log(dt, "API Date");
+
+            let date = new Date();
+            let time = date.getTime();
+            console.log(time, "Current Date");
           })
-
           .catch((error) => {
             console.log(error);
           })
