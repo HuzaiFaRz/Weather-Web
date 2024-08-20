@@ -39,34 +39,36 @@
   const humadityValue = document.querySelector(".humadity-value");
   const cloudyValue = document.querySelector(".cloudy-value");
   const windValue = document.querySelector(".wind-value");
-
-  const apiKey = "112643c301e40cb81b9c70b2466c88f8";
+  const apiKey = "bfcec19f6ef1d97a2c4501545dc2dd94";
 
   form.addEventListener("submit", (event) => {
     const weatherMain = async () => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const searchInput = formData.get("search").trim().toLowerCase();
+      if (!searchInput) {
+        error.textContent = "Type Location";
+        return;
+      }
+
       try {
-        event.preventDefault();
-        const formData = new FormData(form);
-        const searchInput = formData.get("search").trim().toLowerCase();
-        if (!searchInput) {
-          error.textContent = "Type Location";
-          return;
-        }
-        const apiKeyFetching = await fetch(
+        const weatherURLFetching = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}`
         )
           .then((res) => {
-            res.json();
-            console.log(res);
+            let weatherURLFetchingData = res.json();
+            console.log(weatherURLFetchingData);
             if (!res.ok) {
-              return;
+              throw new Error(
+                (error.textContent = "Network response was not ok")
+              );
             }
           })
           .catch((error) => {
             console.log(error);
           })
-          .finally(() => {
-            console.log("complete");
+          .finally((execution = "Complete") => {
+            console.log(execution);
           });
       } catch (error) {
         console.log(error);
@@ -75,6 +77,3 @@
     weatherMain();
   });
 })();
-// fetch("https://fakestoreapi.com/products/1")
-//   .then((res) => res.json())
-//   .then((json) => console.log(json.id));
