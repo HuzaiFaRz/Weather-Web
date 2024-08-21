@@ -56,7 +56,7 @@ main {
   justify-content: center;
   align-items: flex-start;
   padding: 0 50px;
-  font-family: font1;
+  font-family: font2;
   color: #fff9e3;
 }
 
@@ -74,13 +74,13 @@ main {
   gap: 10px 10px;
 }
 
-.degree {
+.temp {
   position: relative;
-  font-size: 150px;
+  font-size: 30px;
   font-weight: 100;
 }
 
-.degree::before {
+.temp::before {
   content: "";
   position: absolute;
   top: 20%;
@@ -89,7 +89,7 @@ main {
   height: 15px;
   border: 5px solid white;
   border-radius: 50%;
-}
+} 
 
 .name-date {
   display: flex;

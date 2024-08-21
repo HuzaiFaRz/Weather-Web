@@ -1,4 +1,5 @@
 (() => {
+
   const backgroundImagesURL = [
     {
       bgName: "sunny",
@@ -34,7 +35,7 @@
     ".weather-condition-info"
   );
 
-  const degreeDiv = document.querySelector(".degree");
+  const tempDiv = document.querySelector(".temp");
   const tempMaxDiv = document.querySelector(".temp-max-div");
   const tempMinDiv = document.querySelector(".temp-min-div");
   const humadityDiv = document.querySelector(".humadity-div");
@@ -44,8 +45,7 @@
   const apiKey = "112643c301e40cb81b9c70b2466c88f8";
 
   const weatherMain = async () => {
-    const formData = new FormData(form);
-    const searchInput = formData.get("search").trim().toLowerCase();
+    const searchInput = new FormData(form).get("search").trim().toLowerCase();
     if (!searchInput) {
       error.textContent = "Type Location";
       return;
@@ -77,6 +77,8 @@
           }).of(sys.country);
           nameDiv.textContent = `${name}, ${searchCountryFullName}`;
           dateDiv.textContent = convertingDate(dt);
+          tempDiv.innerHTML = `${main.temp}&#xEB42`;
+
           console.log(data);
         })
         .catch((error) => {
