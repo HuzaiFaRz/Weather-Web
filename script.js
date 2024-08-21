@@ -43,56 +43,61 @@
 
   const apiKey = "112643c301e40cb81b9c70b2466c88f8";
 
-  form.addEventListener("submit", (event) => {
-    const weatherMain = async () => {
-      event.preventDefault();
-      const formData = new FormData(form);
-      const searchInput = formData.get("search").trim().toLowerCase();
-      if (!searchInput) {
-        error.textContent = "Type Location";
-        return;
-      }
-
-      try {
-        const weatherURLFetching = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}`
-        );
-
-        const weatherURLFetchedData = await weatherURLFetching
-          .json()
-          .then((res) => {
-            let { main, wind, weather, clouds, sys, dt, name } = res;
-
-            const searchCountryFullName = new Intl.DisplayNames([sys.country], {
-              type: "region",
-            }).of(sys.country);
-            nameDiv.textContent = `${name}, ${searchCountryFullName}`;
-            console.log(dt, "API Date");
-
-            let date = new Date();
-            let time = date.getTime();
-            console.log(time, "Current Date");
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-          .finally((execution = "Complete") => {
-            console.log(execution);
-          });
-
-        if (!weatherURLFetching.ok) {
-          throw new Error((error.textContent = "Network response was not ok"));
-        }
-      } catch (error) {
-        console.log(error);
-      }
+  const weatherMain = async () => {
+    const formData = new FormData(form);
+    const searchInput = formData.get("search").trim().toLowerCase();
+    if (!searchInput) {
+      error.textContent = "Type Location";
+      return;
+    }
+    const convertingDate = (dt) => {
+      const apiTime = new Date(dt * 1000);
+      const fullDate = {
+        hour: "numeric",
+        minute: "2-digit",
+        day: "numeric",
+        weekday: "long",
+        month: "long",
+        year: "numeric",
+      };
+      return new Intl.DateTimeFormat("en-US", fullDate).format(apiTime);
     };
+    try {
+      const weatherURLFetching = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}`
+      );
+
+      const weatherURLFetchedData = await weatherURLFetching
+        .json()
+        .then((data) => {
+          let { main, wind, weather, clouds, sys, dt, name } = data;
+
+          const searchCountryFullName = new Intl.DisplayNames([sys.country], {
+            type: "region",
+          }).of(sys.country);
+          nameDiv.textContent = `${name}, ${searchCountryFullName}`;
+          dateDiv.textContent = convertingDate(dt);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally((execution = "Complete") => {
+          console.log(execution);
+        });
+
+      if (!weatherURLFetching.ok) {
+        throw new Error((error.textContent = "Network response was not ok"));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  weatherMain();
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
     weatherMain();
   });
 })();
-
-// .then((res) => {
-//   let weatherURLFetchingData = res.json();
-//   console.log(weatherURLFetchingData);
-
-// })
