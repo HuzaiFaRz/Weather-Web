@@ -6,7 +6,7 @@
     <title>Weather Web</title>
     <link
       rel="shortcut icon"
-      href="Papirus-Team-Papirus-Apps-Weather.512.png"
+      href="Favicon/favicon-icon.png"
       type="image/x-icon"
     />
     <link
@@ -17,11 +17,16 @@
   </head>
   <body>
     <main>
+      <div class="error-container">
+        <button class="error-close">Close</button>
+        <div class="error">Network response was not ok</div>
+      </div>
+
       <div class="weather-container">
         <div class="weather-row">
           <div class="weather-column">
             <h1 class="temp">30</h1>
-            <h2 class="name">Karaci</h2>
+            <h2 class="name">Karachi</h2>
             <h3 class="date">06:09 - Monday, 9 Sep '24</h3>
             <h4 class="weather-condition-short-info">Cloudy</h4>
           </div>
@@ -33,7 +38,7 @@
                 type="search"
                 placeholder="Search Location..."
                 name="search"
-                value="karachi"
+                value="Karachi"
                 autocomplete="off"
               />
               <button type="submit" class="ri-search-line search-btn"></button>
@@ -42,45 +47,49 @@
               <h3 class="weather-condition-long-info">
                 Thunderstorm Light Rain
               </h3>
-              <div class="more-weather-info-spans">
-                <span class="more-weather-info-span">
-                  <h5>RealFeel</h5>
-                  <div class="feel-like-div">32</div>
-                </span>
-                <span class="more-weather-info-span">
-                  <h5>Temp max</h5>
-                  <div class="temp-max-div">30</div>
-                </span>
-                <span class="more-weather-info-span">
-                  <h5>Temp min</h5>
-                  <div class="temp-min-div">28</div>
-                </span>
-                <span class="more-weather-info-span">
-                  <h5>Humadity</h5>
-                  <div class="humadity-div">58%</div>
-                </span>
-                <span class="more-weather-info-span">
-                  <h5>Cloudy</h5>
-                  <div class="cloudy-div">86%</div>
-                </span>
-                <span class="more-weather-info-span">
-                  <h5>Wind</h5>
-                  <div class="wind-div">
-                    25km/h <i class="ri-windy-line wind-icon"></i>
-                  </div>
-                </span>
-                <span class="more-weather-info-span">
-                  <h5>Pressure</h5>
-                  <div class="pressure-div">
-                    1000hpa <i class="ri-windy-line pressure-icon"></i>
-                  </div>
-                </span>
-              </div>
+              <span class="more-weather-info-span">
+                <h5>RealFeel</h5>
+                <div class="feel-like-div">32</div>
+              </span>
+              <span class="more-weather-info-span">
+                <h5>Temp max</h5>
+                <div class="temp-max-div">30</div>
+              </span>
+              <span class="more-weather-info-span">
+                <h5>Temp min</h5>
+                <div class="temp-min-div">28</div>
+              </span>
+              <span class="more-weather-info-span">
+                <h5>Humadity</h5>
+                <div class="humadity-div">58%</div>
+              </span>
+              <span class="more-weather-info-span">
+                <h5>Cloudy</h5>
+                <div class="cloudy-div">86%</div>
+              </span>
+              <span class="more-weather-info-span">
+                <h5>Wind</h5>
+                <div class="wind-div">
+                  25km/h <i class="ri-windy-line wind-icon"></i>
+                </div>
+              </span>
+              <span class="more-weather-info-span">
+                <h5>Pressure</h5>
+                <div class="pressure-div">
+                  1000hpa <i class="ri-windy-line pressure-icon"></i>
+                </div>
+              </span>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="script.js" type="module"></script>
   </body>
 </html>

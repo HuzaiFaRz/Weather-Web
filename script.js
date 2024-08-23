@@ -74,7 +74,7 @@
     ".weather-condition-icon"
   );
   const form = document.querySelector(".form");
-  const error = document.querySelector(".error");
+  const searchInput = document.querySelector(".search");
 
   const weatherConditionShortInfoDiv = document.querySelector(
     ".weather-condition-short-info"
@@ -82,7 +82,9 @@
   const weatherConditionLongInfoDiv = document.querySelector(
     ".weather-condition-long-info"
   );
-
+  const errorContainer = document.querySelector(".error-container");
+  const errorDiv = document.querySelector(".error");
+  const errorCloseBtn = document.querySelector(".error-close");
   const tempDiv = document.querySelector(".temp");
   const tempFeelLikeDiv = document.querySelector(".feel-like-div");
   const tempMaxDiv = document.querySelector(".temp-max-div");
@@ -91,18 +93,43 @@
   const cloudyDiv = document.querySelector(".cloudy-div");
   const windDiv = document.querySelector(".wind-div");
   const pressureDiv = document.querySelector(".pressure-div");
+  const errorContainerVisible = () => {
+    gsap.to(errorContainer, {
+      opacity: 1,
+      zIndex: 11,
+      scale: 1,
+      ease: Power3.easeInOut,
+      duration: 0.5,
+    });
+  };
+
+  const errorContainerUnVisible = () => {
+    gsap.to(errorContainer, {
+      opacity: 0,
+      zIndex: -11,
+      scale: 0,
+      ease: Power3.easeInOut,
+      duration: 0.5,
+    });
+  };
 
   const weatherMain = async () => {
-    const searchInput = new FormData(form).get("search").trim().toLowerCase();
-    if (!searchInput) {
-      error.textContent = "Type Location";
+    let searchInputValueGetting = new FormData(form)
+      .get("search")
+      .trim()
+      .toLowerCase();
+    if (!searchInputValueGetting) {
+      errorContainerVisible();
+      errorCloseBtn.addEventListener("click", errorContainerUnVisible);
+      searchInput.value = "";
+      errorDiv.innerHTML = "Type Location";
       return;
     }
     const apiKey = "112643c301e40cb81b9c70b2466c88f8";
-    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${apiKey}`;
+    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchInputValueGetting}&appid=${apiKey}`;
     try {
       const weatherURLFetching = await fetch(apiURL);
-      const weatherURLFetchedData = await weatherURLFetching
+      const weatherURLFetchedData = weatherURLFetching
         .json()
         .then((data) => {
           let { main, wind, weather, clouds, sys, dt, name } = data;
@@ -196,18 +223,33 @@
             }
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((underError) => {
+          underError =
+            "It looks like we're having trouble accessing the country information. It might be missing or not set up correctly. Please check the data source or ensure the information is provided.";
+          errorContainerVisible();
+          errorCloseBtn.addEventListener("click", errorContainerUnVisible);
+          searchInput.value = "";
+          errorDiv.innerHTML = underError;
         })
         .finally((execution = "Complete") => {
           console.log(execution);
+          searchInput.value = "";
         });
 
       if (!weatherURLFetching.ok) {
-        throw new Error((error.textContent = "Network response was not ok"));
+        errorContainerVisible();
+        errorCloseBtn.addEventListener("click", errorContainerUnVisible);
+        searchInput.value = "";
+        errorDiv.innerHTML =
+          "Network response was not ok. </br> Wrong Spelling.";
       }
-    } catch (error) {
-      console.log(error);
+    } catch (mainError) {
+      mainError =
+        "It looks like we're having trouble accessing the country information. It might be missing or not set up correctly. Please check the data source or ensure the information is provided.";
+      errorContainerVisible();
+      errorCloseBtn.addEventListener("click", errorContainerUnVisible);
+      searchInput.value = "";
+      errorDiv.innerHTML = mainError;
     }
   };
 
