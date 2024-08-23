@@ -266,7 +266,6 @@ main {
 
   .temp {
     font-size: 60px;
-    mix-blend-mode: difference;
   }
 
   .name {
@@ -314,6 +313,15 @@ main {
 }
 
 @media (max-width: 550px) {
+  .weather-column:nth-child(1) {
+    width: 100%;
+    height: 40%;
+  }
+
+  .weather-column:nth-child(2) {
+    width: 100%;
+    height: 60%;
+  }
   .error-container {
     padding: 0 10px;
   }
@@ -328,19 +336,8 @@ main {
     font-size: 18px;
   }
 
-  .error-close:hover {
-    background-color: white;
-    color: black;
-  }
-
-  .weather-column:nth-child(1) {
-    width: 100%;
-    height: 50%;
-  }
-
   .temp {
     font-size: 40px;
-    mix-blend-mode: difference;
   }
 
   .name {
@@ -348,11 +345,6 @@ main {
   }
   .date {
     font-size: 16px;
-  }
-
-  .weather-column:nth-child(2) {
-    width: 100%;
-    height: 50%;
   }
 
   .weather-more-information {
