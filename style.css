@@ -19,14 +19,10 @@ body {
 
 ::-webkit-scrollbar {
   width: 8px;
-  border-radius: 5px;
-
-  background-color: rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: royalblue;
-  border-radius: 5px;
 }
 
 body {
@@ -35,7 +31,15 @@ body {
   -moz-user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
-  -moz-user-modify: none;
+  background-image: url(PMSunny.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+  object-position: center;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
 }
 main {
   width: 100%;
@@ -99,12 +103,6 @@ main {
 .weather-container {
   width: 100%;
   height: 100%;
-  background-color: black;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  object-fit: cover;
-  object-position: center;
 }
 
 .weather-row {
@@ -118,7 +116,6 @@ main {
 .weather-column:nth-child(1) {
   position: relative;
   width: 60%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -141,6 +138,7 @@ main {
 .date {
   font-size: 20px;
   font-weight: 100;
+  line-height: 33px;
   mix-blend-mode: difference;
 }
 
@@ -158,7 +156,6 @@ main {
 
 .weather-column:nth-child(2) {
   width: 40%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -266,15 +263,23 @@ main {
 .temp-max-icon {
   color: red;
 }
-@media (max-width: 750px) {
+
+@media (max-width: 1000px) {
+  .weather-column:nth-child(1) {
+    width: 50%;
+  }
+  .weather-column:nth-child(2) {
+    width: 50%;
+  }
+}
+
+@media (max-width: 850px) {
   .weather-column:nth-child(1) {
     width: 100%;
     height: 50%;
   }
   .weather-column:nth-child(2) {
     width: 100%;
-    height: 50%;
-    overflow-y: scroll;
     padding: 10px 15px;
   }
 
@@ -315,13 +320,6 @@ main {
 }
 
 @media (max-width: 550px) {
-  .weather-column:nth-child(1) {
-    height: 50%;
-  }
-
-  .weather-column:nth-child(2) {
-    height: 50%;
-  }
   .error-container {
     padding: 0 10px;
   }

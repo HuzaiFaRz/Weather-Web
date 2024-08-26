@@ -191,41 +191,41 @@
 
       if (weathertimeConverting(dt).includes("PM")) {
         if (weatherConditionShortInfoDiv.innerHTML === "Thunderstorm") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[0].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[0].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Haze") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[1].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[1].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Clouds") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[2].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[2].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Clear") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[3].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[3].bgURL})`;
         } else if (
           weatherConditionShortInfoDiv.innerHTML === "Rain" ||
           weatherConditionShortInfoDiv.innerHTML === "Drizzle"
         ) {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[4].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[4].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Sunny") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[5].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[5].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Smoke") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[6].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesPMURL[6].bgURL})`;
         }
       } else {
         if (weatherConditionShortInfoDiv.innerHTML === "Thunderstorm") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[0].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[0].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Haze") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[1].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[1].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Clouds") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[2].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[2].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Clear") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[3].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[3].bgURL})`;
         } else if (
           weatherConditionShortInfoDiv.innerHTML === "Rain" ||
           weatherConditionShortInfoDiv.innerHTML === "Drizzle"
         ) {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[4].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[4].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Sunny") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[5].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[5].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Smoke") {
-          weatherContainer.style.backgroundImage = `url(${backgroundImagesAMURL[6].bgURL})`;
+          document.body.style.backgroundImage = `url(${backgroundImagesAMURL[6].bgURL})`;
         }
       }
     } catch (mainError) {
