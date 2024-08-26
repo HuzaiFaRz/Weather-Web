@@ -125,10 +125,12 @@ main {
   align-items: center;
   text-align: center;
   color: #fff9e3;
+  padding: 0px 20px;
 }
 
 .temp {
   font-size: 80px;
+  color: #fff;
   mix-blend-mode: difference;
 }
 
@@ -141,6 +143,11 @@ main {
   font-weight: 100;
   mix-blend-mode: difference;
 }
+
+.weather-condition-icon {
+  mix-blend-mode: lighten;
+}
+
 .weather-condition-short-info {
   background-color: black;
   padding: 10px 20px;
@@ -281,10 +288,15 @@ main {
   }
 
   .weather-more-information {
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 500px;
     overflow-y: scroll;
     margin-top: 10px;
+  }
+  .more-weather-info-span {
+    width: 100%;
   }
 
   .search {
@@ -344,17 +356,6 @@ main {
     font-size: 30px;
   }
   .date {
-    font-size: 16px;
-  }
-
-  .weather-more-information {
-    justify-content: flex-start;
-    height: 500px;
-    overflow-y: scroll;
-    margin-top: 10px;
-  }
-
-  .search {
     font-size: 16px;
   }
 
