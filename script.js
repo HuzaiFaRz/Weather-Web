@@ -115,7 +115,7 @@
   };
 
   const weatherMain = async () => {
-    let searchInputValueGetting = new FormData(form).get("search").trimEnd();
+    let searchInputValueGetting = new FormData(form).get("search").trim();
     if (!searchInputValueGetting) {
       errorContainerVisible();
       errorCloseBtn.addEventListener("click", errorContainerUnVisible);
@@ -143,20 +143,22 @@
         type: "region",
       }).of(sys.country);
 
-      const apiTime = new Date(dt * 1000);
-      const fullDateOption = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        timeZoneName: "short",
+      const weathertimeConverting = (dt) => {
+        const apiTime = new Date(dt * 1000);
+        const fullDateOption = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          timeZoneName: "short",
+        };
+        return new Intl.DateTimeFormat(["en-US"], fullDateOption).format(
+          apiTime
+        );
       };
-      let convertedTime = new Intl.DateTimeFormat(
-        "en-US",
-        fullDateOption
-      ).format(apiTime);
+      weathertimeConverting(dt);
 
       let weatherConditionLongInfoConverted =
         weather[0].description.charAt().toUpperCase() +
@@ -174,7 +176,7 @@
       tempMaxDiv.innerHTML = `${maxTempConverted}&#176  <i class="ri-temp-hot-line temp-max-icon"></i>`;
 
       nameDiv.innerHTML = `${name},  ${searchCountryFullName}`;
-      dateDiv.innerHTML = convertedTime;
+      dateDiv.innerHTML = weathertimeConverting(dt);
       weatherConditionShortInfoDiv.innerHTML = `${weather[0].main}`;
       weatherConditionLongInfoDiv.innerHTML = weatherConditionLongInfoConverted;
       weatherConditionIcon.setAttribute(
@@ -187,7 +189,7 @@
       windDiv.innerHTML = `${wind.speed.toFixed()} km/h <i class="ri-windy-line wind-icon"></i>`;
       pressureDiv.innerHTML = `${main.pressure} hPa <i class="ri-windy-line pressure-icon"></i>`;
 
-      if (convertedTime.includes("PM")) {
+      if (weathertimeConverting(dt).includes("PM")) {
         if (weatherConditionShortInfoDiv.innerHTML === "Thunderstorm") {
           weatherContainer.style.backgroundImage = `url(${backgroundImagesPMURL[0].bgURL})`;
         } else if (weatherConditionShortInfoDiv.innerHTML === "Haze") {
