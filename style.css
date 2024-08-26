@@ -217,14 +217,12 @@ main {
 
 .weather-more-information {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  list-style: none;
   padding: 10px 10px;
   gap: 10px;
 }
 .weather-condition-long-info {
+  width: fit-content;
   background-color: black;
   color: white;
   padding: 10px 20px;
@@ -270,7 +268,7 @@ main {
     width: 100%;
     height: 50%;
   }
-.weather-column:nth-child(2) {
+  .weather-column:nth-child(2) {
     width: 100%;
     height: 50%;
     overflow-y: scroll;
@@ -288,7 +286,6 @@ main {
     font-size: 18px;
   }
 
-  
   .search {
     font-size: 16px;
   }
