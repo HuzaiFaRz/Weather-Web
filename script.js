@@ -116,8 +116,6 @@
 
   const weatherMain = async () => {
     let searchInputValueGetting = new FormData(form).get("search").trimEnd();
-    console.log(searchInputValueGetting);
-
     if (!searchInputValueGetting) {
       errorContainerVisible();
       errorCloseBtn.addEventListener("click", errorContainerUnVisible);
@@ -137,7 +135,6 @@
         searchInput.value = "";
         errorDiv.innerHTML = `${weatherURLFetchedData.cod}</br>${weatherURLFetchedData.message}`;
       }
-      console.log(weatherURLFetchedData);
 
       let { main, wind, weather, clouds, sys, dt, name } =
         weatherURLFetchedData;
@@ -248,5 +245,3 @@
     weatherMain();
   });
 })();
-
-console.log(305 - 273.15);
