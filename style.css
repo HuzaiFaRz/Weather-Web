@@ -223,12 +223,14 @@ main {
 }
 .weather-condition-long-info {
   width: fit-content;
+  margin: 0 auto;
   background-color: black;
   color: white;
   padding: 10px 20px;
   border-radius: 20px;
   font-size: 18px;
   font-weight: 300;
+  margin-top: 15px;
 }
 
 .more-weather-info-span {
@@ -240,6 +242,7 @@ main {
   padding: 20px 20px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 }
 
 .more-weather-info-span:hover {
