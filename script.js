@@ -94,24 +94,17 @@
   const cloudyDiv = document.querySelector(".cloudy-div");
   const windDiv = document.querySelector(".wind-div");
   const pressureDiv = document.querySelector(".pressure-div");
+
   const errorContainerVisible = () => {
-    gsap.to(errorContainer, {
-      opacity: 1,
-      zIndex: 11,
-      scale: 1,
-      ease: Power3.easeInOut,
-      duration: 0.5,
-    });
+    errorContainer.style.opacity = "1";
+    errorContainer.style.zIndex = "11";
+    errorContainer.style.transition = "all 0.2s linear";
   };
 
   const errorContainerUnVisible = () => {
-    gsap.to(errorContainer, {
-      opacity: 0,
-      zIndex: -11,
-      scale: 0,
-      ease: Power3.easeInOut,
-      duration: 0.5,
-    });
+    errorContainer.style.opacity = "0";
+    errorContainer.style.zIndex = "-11";
+    errorContainer.style.transition = "all 0.2s linear";
   };
 
   const weatherMain = async () => {

@@ -63,7 +63,6 @@ main {
   align-items: center;
   opacity: 0;
   z-index: -11;
-  transform: scale(0);
 }
 
 .error {
@@ -76,7 +75,7 @@ main {
   backdrop-filter: blur(20px);
   border-radius: 20px;
   box-shadow: 0px 0px 20px#fff;
-  color: red;
+  color: white;
   font-size: 20px;
   text-align: center;
   line-height: 33px;
