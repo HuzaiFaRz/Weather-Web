@@ -98,17 +98,12 @@
   const errorContainerVisible = () => {
     document.body.style.overflowY = "hidden";
     window.scrollTo(0, 0);
-    errorContainer.style.opacity = "1";
-    errorContainer.style.zIndex = "11";
-    errorContainer.style.transition = "all 0.2s linear";
+    errorContainer.style.display = "flex";
   };
 
   const errorContainerUnVisible = () => {
     document.body.style.overflowY = "auto";
-
-    errorContainer.style.opacity = "0";
-    errorContainer.style.zIndex = "-11";
-    errorContainer.style.transition = "all 0.2s linear";
+    errorContainer.style.display = "none";
   };
 
   const weatherMain = async () => {
