@@ -2,69 +2,69 @@
   const backgroundImagesPMURL = [
     {
       bgName: "Thunderstorm",
-      bgURL: "PMThunderstorm.jpg",
+      bgURL: "./images/PMThunderstorm.jpg",
     },
     {
       bgName: "Windy",
-      bgURL: "PMWindy.jpg",
+      bgURL: "./images/PMWindy.jpg",
     },
 
     {
       bgName: "Cloudy",
-      bgURL: "PMCloudy.jpg",
+      bgURL: "./images/PMCloudy.jpg",
     },
     {
       bgName: "Clear",
-      bgURL: "PMClear.jpg",
+      bgURL: "./images/PMClear.jpg",
     },
 
     {
       bgName: "Rainy",
-      bgURL: "PMRaining.png",
+      bgURL: "./images/PMRaining.png",
     },
 
     {
       bgName: "Sunny",
-      bgURL: "PMSunny.png",
+      bgURL: "./images/PMSunny.png",
     },
 
     {
       bgName: "Smoke",
-      bgURL: "PMSmoke.jpg",
+      bgURL: "./images/PMSmoke.jpg",
     },
   ];
   const backgroundImagesAMURL = [
     {
       bgName: "Thunderstorm",
-      bgURL: "AMThunderstorm.jpg",
+      bgURL: "./images/AMThunderstorm.jpg",
     },
     {
       bgName: "Windy",
-      bgURL: "AMWindy.jpg",
+      bgURL: "./images/AMWindy.jpg",
     },
 
     {
       bgName: "Cloudy",
-      bgURL: "AMCloudy.jpg",
+      bgURL: "./images/AMCloudy.jpg",
     },
     {
       bgName: "Clear",
-      bgURL: "AMClear.jpg",
+      bgURL: "./images/AMClear.jpg",
     },
 
     {
       bgName: "Rainy",
-      bgURL: "AMRaining.jpg",
+      bgURL: "./images/AMRaining.jpg",
     },
 
     {
       bgName: "Sunny",
-      bgURL: "AMSunny.png",
+      bgURL: "./images/AMSunny.png",
     },
 
     {
       bgName: "Smoke",
-      bgURL: "AMSmoke.jpg",
+      bgURL: "./images/AMSmoke.jpg",
     },
   ];
   const weatherContainer = document.querySelector(".weather-container");
