@@ -71,16 +71,16 @@
   const nameDiv = document.querySelector(".name");
   const dateDiv = document.querySelector(".date");
   const weatherConditionIcon = document.querySelector(
-    ".weather-condition-icon"
+    ".weather-condition-icon",
   );
   const form = document.querySelector(".form");
   const searchInput = document.querySelector(".search");
 
   const weatherConditionShortInfoDiv = document.querySelector(
-    ".weather-condition-short-info"
+    ".weather-condition-short-info",
   );
   const weatherConditionLongInfoDiv = document.querySelector(
-    ".weather-condition-long-info"
+    ".weather-condition-long-info",
   );
   const errorContainer = document.querySelector(".error-container");
   const errorDiv = document.querySelector(".error");
@@ -147,7 +147,7 @@
           timeZoneName: "short",
         };
         return new Intl.DateTimeFormat(["en-US"], fullDateOption).format(
-          apiTime
+          apiTime,
         );
       };
       weathertimeConverting(dt);
@@ -173,7 +173,7 @@
       weatherConditionLongInfoDiv.innerHTML = weatherConditionLongInfoConverted;
       weatherConditionIcon.setAttribute(
         "src",
-        `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+        `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`,
       );
 
       humadityDiv.innerHTML = `${main.humidity}% <i class="ri-drop-line humadity-icon"></i>`;

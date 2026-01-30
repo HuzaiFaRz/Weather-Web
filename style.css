@@ -116,6 +116,7 @@ main {
   text-align: center;
   color: #fff9e3;
   padding: 10px 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .temp {
@@ -127,6 +128,7 @@ main {
 .name {
   font-size: 60px;
   mix-blend-mode: difference;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 .date {
   font-size: 20px;
