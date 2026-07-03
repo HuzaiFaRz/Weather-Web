@@ -182,41 +182,41 @@
       pressureDiv.innerHTML = `${main.pressure} hPa <i class="ri-windy-line pressure-icon"></i>`;
 
       if (weathertimeConverting(dt).includes("PM")) {
-        if (weatherConditionShortInfoDiv.innerHTML === "Thunderstorm") {
+        if (weather[0].main.includes("Thunderstorm")) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[0].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Haze") {
+        } else if (weather[0].main.includes("Haze")) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[1].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Clouds") {
+        } else if (weather[0].main.includes("Clouds")) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[2].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Clear") {
+        } else if (weather[0].main.includes("Clear")) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[3].bgURL})`;
         } else if (
-          weatherConditionShortInfoDiv.innerHTML === "Rain" ||
-          weatherConditionShortInfoDiv.innerHTML === "Drizzle"
+          weather[0].main.includes("Rain") ||
+          weather[0].main.includes("Drizzle")
         ) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[4].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Sunny") {
+        } else if (weather[0].main.includes("Sunny")) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[5].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Smoke") {
+        } else if (weather[0].main.includes("Smoke")) {
           document.body.style.backgroundImage = `url(${backgroundImagesPMURL[6].bgURL})`;
         }
       } else {
-        if (weatherConditionShortInfoDiv.innerHTML === "Thunderstorm") {
+        if (weather[0].main.includes("Thunderstorm")) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[0].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Haze") {
+        } else if (weather[0].main.includes("Haze")) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[1].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Clouds") {
+        } else if (weather[0].main.includes("Clouds")) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[2].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Clear") {
+        } else if (weather[0].main.includes("Clear")) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[3].bgURL})`;
         } else if (
-          weatherConditionShortInfoDiv.innerHTML === "Rain" ||
-          weatherConditionShortInfoDiv.innerHTML === "Drizzle"
+          weather[0].main.includes("Rain") ||
+          weather[0].main.includes("Drizzle")
         ) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[4].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Sunny") {
+        } else if (weather[0].main.includes("Sunny")) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[5].bgURL})`;
-        } else if (weatherConditionShortInfoDiv.innerHTML === "Smoke") {
+        } else if (weather[0].main.includes("Smoke")) {
           document.body.style.backgroundImage = `url(${backgroundImagesAMURL[6].bgURL})`;
         }
       }
